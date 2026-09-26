@@ -1,0 +1,4 @@
+interface:
+  display_name: "论文视频制作"
+  short_description: "从论文和实验素材制作研究视频，涵盖叙事、旁白字幕、图解动画、实验对比与发布验证"
+  default_prompt: "使用 $paper-video-production，根据论文和已有素材制作或精修研究视频，沿用已确认的视觉与声音风格，并核对实验依据和完整成片。"
