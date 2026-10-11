@@ -5,8 +5,10 @@
 保存单一 manifest / timeline，而不是分别在脚本、SRT 和混音里维护手写秒数。推荐字段：
 
 ```text
-project: revision, paper_version, width, height, fps, voice, pronunciation_map
+project: revision, paper_version, width, height, fps, voice, pronunciation_map,
+         backend_version, render_config, font_refs, random_seed
 scene: id, order, duration_frames, source_assets, claim_refs,
+       learning_goal, entry_state, exit_state, cues{name: local_frame},
        narration_file, audio_in/out, audio_lead, playback_rate,
        captions[{start_frame,end_frame,display_text}], camera_states
 release: revision, video_path, captions_path, poster_path, asset_hashes,
@@ -14,6 +16,8 @@ release: revision, video_path, captions_path, poster_path, asset_hashes,
 ```
 
 `scene.start_frame` 从顺序及前面帧数累计得出。旁白声轨和字幕必须指向同一次剪辑。记录 reference 是为了内部核对，不自动把工程注释渲染上屏。
+
+字幕和具名 cue 使用场景局部帧，最终混音与导出时再加累计起点；已有工程用全局帧时保留约定并显式转换，不混用两套坐标。缓存失效和后端兼容性见 [框架选型](rendering-backends.md)，审片问题及修复证据见 [修复闭环](review-loop.md)。
 
 局部修改流程：保存新 revision → 重做受影响场景及相邻转换 → 短预览 → 拼完整片 → 解码与试听。最后产物名字及 `latest` 指针保持明确；不要把旧版本链接重新发给用户。
 

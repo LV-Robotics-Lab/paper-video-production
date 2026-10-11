@@ -2,7 +2,9 @@
 
 A reusable Codex skill for creating and refining research videos from papers, slides, diagrams, and experiment footage. Instructions are written in Chinese; video language and style are chosen per project.
 
-It covers narrative planning, narration and captions, continuous figure navigation, layered scientific animations, qualitative comparisons, and end-to-end delivery checks. It contains no paper-specific assets, model settings, project history, or fixed visual template.
+It covers evidence-linked storyboards, visual design constraints, narration cues and captions, continuous figure navigation, layered scientific animations, qualitative comparisons, render-and-review repair loops, verified project lessons, and end-to-end delivery checks. It contains no paper-specific assets, model settings, project history, or fixed visual template.
+
+Rendering frameworks are selected per project. The skill incorporates methods from the ten projects and papers listed in [reviewed sources](references/rendering-backends.md#参考来源与采用边界); it does not install every framework or require every video to use all of them.
 
 ## Install
 
@@ -19,6 +21,9 @@ Invoke `$paper-video-production` with your paper, available assets, and desired 
 ## Contents
 
 - [SKILL.md](SKILL.md): entry point and production workflow.
+- [Storyboard and design](references/storyboard-design.md): learning goals, evidence-linked shots, visual constraints, and representative renders.
+- [Rendering backends](references/rendering-backends.md): task-based selection, compatibility checks, deterministic rendering, and reviewed sources.
+- [Review and repair](references/review-loop.md): frame/object-specific feedback, bounded repairs, and verified project-level lessons.
 - [Audio and captions](references/audio-captions.md): narration alignment, terminology, subtitles, and mixing.
 - [Motion](references/motion.md): continuous figure navigation and numerical chart animations.
 - [Scientific diagrams](references/diagram-animation.md): faithful layered redraws and mechanism animations.
